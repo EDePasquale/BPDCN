@@ -14,8 +14,7 @@ get_scpred(reference)
 plot_probabilities(reference)
 
 datasets=c("SAMPLE_NAME", 
-           "SAMPLE_NAME", 
-           "BPDCN181128")
+           "SAMPLE_NAME")
 
 for(i in datasets){
   query=readRDS(paste0("~/Documents/Projects/Data_files_temp/Donor/", i, "/Seurat.rds"))
@@ -82,21 +81,21 @@ dev.off()
 
 
 #########################################
-query=readRDS("~/Documents/Projects/Data_files_temp/Donor/BPDCN190711/Seurat.rds")
+query=readRDS("~/Documents/Projects/Data_files_temp/Donor/SAMPLE_NAME/Seurat.rds")
 query <- scPredict(query, reference)
 DimPlot(query, group.by = "scpred_prediction", reduction = "scpred")
 query <- RunUMAP(query, reduction = "scpred", dims = 1:30)
 DimPlot(query, group.by = "scpred_prediction", label = TRUE, repel = TRUE)
 DimPlot(query, group.by = "seurat_clusters", label = TRUE, repel = TRUE)
 
-query=readRDS("~/Documents/Projects/Data_files_temp/Donor/BPDCN181128/Seurat.rds")
+query=readRDS("~/Documents/Projects/Data_files_temp/Donor/SAMPLE_NAME/Seurat.rds")
 query <- scPredict(query, reference)
 DimPlot(query, group.by = "scpred_prediction", reduction = "scpred")
 query <- RunUMAP(query, reduction = "scpred", dims = 1:30)
 DimPlot(query, group.by = "scpred_prediction", label = TRUE, repel = TRUE)
 DimPlot(query, group.by = "seurat_clusters", label = TRUE, repel = TRUE)
 
-query=readRDS("~/Documents/Projects/Data_files_temp/Donor/BPDCN180329/Seurat.rds")
+query=readRDS("~/Documents/Projects/Data_files_temp/Donor/SAMPLE_NAME/Seurat.rds")
 query <- scPredict(query, reference)
 DimPlot(query, group.by = "scpred_prediction", reduction = "scpred")
 query <- RunUMAP(query, reduction = "scpred", dims = 1:30)
