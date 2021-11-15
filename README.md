@@ -15,14 +15,14 @@ This script is a modification of the the standard clustering Seurat tutorial (ht
 ### Seurat_Integration3.R
 This script takes a list of Seurat.rds for integration using Seurat's Integration function. This script also generates UMAP plots colored by Seurat cluster and signatures scores (see above) to assist with determining the cell type associated with each cluster. Note that cell cycle genes were removed from consideration when defining anchors in line 42. The bottom of the script contains legacy code used to color plots by specific genes.
 
-### T_cell_subcluster.R
-
 
 ## Classification
 
 ### random_forest_newref.R
+This script was used for performing random forest classification on the BPDCN samples using the integrated control samples as the reference. This process involves building a classifier, doing 5-fold cross validaton, classifying BPDCN cells, writing results, and plotting the results in a stacked bar plot.
 
 ### scPred.R
+This script runs scPred on the BPDCN samples using the integrated control samples as the reference. Various models were tested, but the function defaults were used in the paper. This process involves running scPred and plotting the results in a stacked bar plot.
 
 ### SeuratTransferData.R
 
@@ -46,6 +46,8 @@ This script takes a list of Seurat.rds for integration using Seurat's Integratio
 
 ### project_plots.R
 
+### T_cell_subcluster.R
+This script was used for generating plots related to further subclustering of the T-cells in the integrated control sample data. It takes in the original integrated Seurat object as well as higher resolution clustering from Seurat, then applies the more granular T-cell clusters to the integrated object, generates plots, and finally saves the new object. 
 
 
 ## Correlation and Statistical Analyses
