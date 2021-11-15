@@ -43,10 +43,13 @@ This script is the same as above with two modifications: 1) The cell populations
 ## Plot Generation
 
 ### CH_heatmaps.R
+This script generates heatmaps of the cluster marker genes (as defined by cellHarmony) and all cells, seperated first by cell type and then by sample. These heatmaps were not included in the manscript for reasons of space and readability.
 
 ### heatmap_DE.R
+This script generates heatmaps of differentially expressed genes (as defined by cellHarmony), either upregulated, downregulated, and all regulated genes. These heatmaps were not used in the final manuscript, similar to the above.
 
 ### project_plots.R
+This script was used to project cells from the BPDCN samples into the same UMAP space as the integrated control samples using Seurat's MapQuery() function, as detailed in https://satijalab.org/seurat/articles/integration_mapping.html.
 
 ### T_cell_subcluster.R
 This script was used for generating plots related to further subclustering of the T-cells in the integrated control sample data. It takes in the original integrated Seurat object as well as higher resolution clustering from Seurat, then applies the more granular T-cell clusters to the integrated object, generates plots, and finally saves the new object. 
@@ -54,12 +57,11 @@ This script was used for generating plots related to further subclustering of th
 
 ## Correlation and Statistical Analyses
 
-### corr_to_exh_Tonly.R
-
 ### corr_to_exh.R
+This script was used for the correlation analyses between TCR clonal expansions and T-cell exhaustion scores. It takes as input the Seurat object, cellHarmony cell type classifications, exhaustion scores, and TREK-seq results. It generates UMAP plots colored by 1) cellHarmony labels, 2) exhaustion score, and 3) clone size (or normalized clone size). It also generates heatmaps of genes most correlated to exhaustion, but these were not used in the manuscript.
+
+### corr_to_exh_Tonly.R
+This script is the same as above, but is limited to only T-cells.
 
 ### corr_xy.R
-
-### relevant_stats.R
-
-
+This is a function version of the above script, with the inclusion of barplots that show the relationships between clone size and T-cell exhaustion scores. 
