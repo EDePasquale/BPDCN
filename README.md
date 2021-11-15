@@ -25,17 +25,19 @@ This script was used for performing random forest classification on the BPDCN sa
 This script runs scPred on the BPDCN samples using the integrated control samples as the reference. Various models were tested, but the function defaults were used in the paper. This process involves running scPred and plotting the results in a stacked bar plot.
 
 ### SeuratTransferData.R
-
+This script was used for 1) integrating 2 older healthy control samples with 3 younger control samples that were previously integrated, with cells classified, using Seurat Integration and 2) classifying BPDCN patient cells. This process involves running Seurat's FindTransferAnchors() and TransferData() functions followed by plotting the results in a stacked bar plot for BPDCN samples.
 
 
 ## Gene Set Enrichment and Pathway Analysis
 
 ### gsea.R
+This script calls a custom GSEA function (https://bioinformaticsbreakdown.com/how-to-gsea/) that combines 2 independent GSEA implementations (fgsea() and gage() functions) and returns pathways significantly enriched with both methods. This script also generates a heatmap of enrichment scores, as significant pathways by cell type/sample.
 
 ### pathway_genes_all.R
+This script reads in a list of sample names and a geneset file downloaded from MSigDB (https://www.gsea-msigdb.org/gsea/msigdb/genesets.jsp?collection=H) to generate a heatmap of genes from this signature as rows and cell types/samples as columns. 
 
 ### pathway_genes_TNKR.R
-
+This script is the same as above with two modifications: 1) The cell populations are limited to T and NK cells for the purposes of generating figures for the paper, and 2) The genes are limited to those in the gene set that are significantly differentially expressed between controls and any BPDCN populations with a minimum aboslute expression difference threshold. The unfiltered version was also included in the manuscript as a Supplemental Figure.
 
 
 ## Plot Generation
